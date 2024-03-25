@@ -113,5 +113,6 @@
 ```
 
 ### 2. DB 설계
+![DB구조](https://github.com/zwanz94/BoardProject/assets/141385082/d562f041-dd0f-4eb2-9ed1-36a02c87275e)
 
 ### 3. API 설계
