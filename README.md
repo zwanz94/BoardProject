@@ -136,13 +136,18 @@
 #### User API
 |**기능**|**Method**|**URL**|**Return Page**|
 |------|---|---|---|
-|테스트1|테스트2|테스트3|테스트3|
-|테스트1|테스트2|테스트3|테스트3|
-|테스트1|테스트2|테스트3|테스트3|
+|로그인|GET|/users/login|로그인 폼 페이지|
+|회원등록|GET|/users/register|회원등록 폼 페이지|
+|회원등록 폼|POST|/users/register|로그인 페이지|
+|회원정보|GET|/users/info|회원정보 페이지|
+|비밀번호변경|GET|/users/change-password|비밀번호변경 폼 페이지|
+|비밀번호변경 폼|POST|/users/change-password|회원정보 페이지|
+|회원삭제|GET|/users/delete|메인 페이지|
 
 #### Comment API
 |**기능**|**Method**|**URL**|
 |------|---|---|
-|테스트1|테스트2|테스트3|
-|테스트1|테스트2|테스트3|
-|테스트1|테스트2|테스트3|
+|댓글 리스트|GET|/boards/list/{boardId}/comments|
+|댓글 작성|POST|/boards/list/{boardId}/comments|
+|댓글 삭제|DELETE|/boards/list/{boardId}/comments/{commentId}|
+
