@@ -30,7 +30,6 @@ public class BoardController {
         Page<BoardDTO.BoardListDTO> boardListDTO = boardService.list(searchKeyword, pageable);
 
         /*----검색 결과 없을 경우 처리 로직----*/
-        /*----수정 테스트----*/
         if(!searchKeyword.isEmpty() && !boardListDTO.hasContent()){
             model.addAttribute("message","게시물이 존재하지 않습니다.");
             model.addAttribute("url","/boards/list");
