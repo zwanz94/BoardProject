@@ -124,14 +124,14 @@
 #### Board API
 |**기능**|**Method**|**URL**|**Return Page**|
 |------|---|---|---|
-|게시글 전체 목록|GET|/boards/list|테스트3|
-|게시글 페이징/검색|GET|/boards/list/?page={pagenumber}&searchKeyword={keyword}|테스트3|
-|게시글 상세 보기|GET|/boards/list/{id}|테스트3|
-|게시글 등록|GET|/boards/write|테스트3|
-|게시글 등록 페이지|POST|/boards/write|테스트3|
-|게시글 삭제|GET|/boards/delete/{id}|테스트3|
-|게시글 수정|GET|/boards/update/{id}|테스트3|
-|게시글 수정 페이지|POST|/boards/update|테스트3|
+|게시글 전체 목록|GET|/boards/list|게시글 전체 목록 페이지|
+|게시글 페이징/검색|GET|/boards/list/?page={pagenumber}&searchKeyword={keyword}|게시글 전체 목록 페이지|
+|게시글 상세 보기|GET|/boards/list/{id}|게시물 상세 페이지|
+|게시글 등록|GET|/boards/write|게시글 등록 폼 페이지|
+|게시글 등록 폼|POST|/boards/write|게시글 전체 목록 페이지|
+|게시글 삭제|GET|/boards/delete/{id}|게시글 전체 목록 페이지|
+|게시글 수정|GET|/boards/update/{id}|게시글 수정 폼 페이지|
+|게시글 수정 폼|POST|/boards/update|게시글 전체 목록 페이지|
 
 #### User API
 |**기능**|**Method**|**URL**|**Return Page**|
