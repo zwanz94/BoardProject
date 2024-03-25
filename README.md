@@ -147,7 +147,7 @@
 #### Comment API
 |**기능**|**Method**|**URL**|
 |------|---|---|
-|댓글 리스트|GET|/boards/list/{boardId}/comments|
+|댓글 전체 목록|GET|/boards/list/{boardId}/comments|
 |댓글 작성|POST|/boards/list/{boardId}/comments|
 |댓글 삭제|DELETE|/boards/list/{boardId}/comments/{commentId}|
 
