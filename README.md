@@ -19,11 +19,11 @@
 
 ### 3. 사용 기술
 
-#### 3-1 백엔드
-
-##### 개발 Tool
+#### 개발 Tool
 - IntelliJ IDEA 2023.3.5 (Community Edition)
 - Visual Studio Code 1.87.2
+
+#### 3-1 백엔드
 
 ##### 주요 프레임워크 / 라이브러리
 
