@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
 
     private final BoardService boardService;
-    private final CommentService commentService;
+
     @GetMapping("/list")
     public String list(@PageableDefault(page=0, size=5, sort="id", direction= Sort.Direction.DESC) Pageable pageable,
                        @RequestParam(required = false, defaultValue = "") String searchKeyword,
