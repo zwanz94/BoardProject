@@ -21,6 +21,10 @@
 
 #### 3-1 백엔드
 
+##### 개발 Tool
+- IntelliJ IDEA 2023.3.5 (Community Edition)
+- Visual Studio Code 1.87.2
+
 ##### 주요 프레임워크 / 라이브러리
 
 ##### Build Tool
