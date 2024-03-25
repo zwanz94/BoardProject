@@ -40,6 +40,7 @@
 
 ##### DataBase
 - MariaDB 10.11
+- MySQL Workbench 8.0 CE
 
 #### 3-3 프론트엔드
 - HTML/CSS
