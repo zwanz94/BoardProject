@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="~{fragments/common :: head('게시판')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+    </head>
+
+    <body>
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="~{fragments/common :: menu('board')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+            </nav>
+        </header>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <h2>게시판</h2>
+            <div>총 건수 : <span th:text="${boardListDTO.totalElements}"></span></div>
+            
+            <!-- Button layer -->
+            <div class="text-end">
+                <a type="button" class="btn btn-primary" th:href="@{/boards/write}">글쓰기</a>
+            </div>
+
+            <!-- List layer -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">번호</th>
+                        <th class="text-center" scope="col">제목</th>
+                        <th class="text-center" scope="col">작성자</th>
+                        <th class="text-center" scope="col">작성일</th>
+                        <th class="text-center" scope="col">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="dto, loop : ${boardListDTO}">
+                        <!-- 반복문 상태변수를 이용한 글 번호 출력 -->
+                        <td class="text-center"
+                            th:text="${boardListDTO.totalElements-(boardListDTO.number*boardListDTO.size)-loop.index}">번호</td>
+                        <td class="text-center"><a th:text="${dto.title}" th:href="@{/boards/list/{id}(id=${dto.id})}">제목</a></td>
+                        <td class="text-center" th:text="${dto.username}">작성자</td>
+                        <td class="text-center" th:text="*{#temporals.format(dto.createdTime, 'yyyy-MM-dd HH:mm:ss')}">작성일</td>
+                        <td class="text-center" th:text="${dto.hit}">조회수</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Paging layer -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" th:classappend="${1 == pageGroup} ? 'disabled'">
+                        <a class="page-link" th:href="@{/boards/list(page=${((pageGroup-1)*5)-1}, searchKeyword=${param.searchKeyword})}">Previous</a>
+                    </li>
+                    <li class="page-item" th:classappend="${i == currentPage+1} ? 'disabled'"
+                        th:each="i : ${#numbers.sequence(firstPage, lastPage)}">
+                        <a class="page-link" th:href="@{/boards/list(page=${i-1}, searchKeyword=${param.searchKeyword})}" th:text="${i}">페이지 번호</a>
+                    </li>
+                    <li class="page-item" th:classappend="${lastPageGroup == pageGroup} ? 'disabled'">
+                        <a class="page-link" th:href="@{/boards/list(page=${pageGroup*5}, searchKeyword=${param.searchKeyword})}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Searching layer -->
+            <form class="row g-3 d-flex justify-content-center">
+                <div class="col-auto">
+                    <label for="searchKeyword" class="visually-hidden">검색</label>
+                    <input type="text" class="form-control" id="searchKeyword" name="searchKeyword" placeholder="검색"
+                        th:value="${param.searchKeyword}">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">검색</button>
+                </div>
+            </form>
+        </div>       
+    </body>
+</html>

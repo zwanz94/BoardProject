@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="~{fragments/common :: head('Hello, Spring Boot!')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+    </head>
+
+    <body>
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="~{fragments/common :: menu('home')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+            </nav>
+        </header>
+
+        <!-- Begin page content -->
+        <div class="starter_template">
+            <h1>Spring Boot</h1>
+            <p class="lead">Spring Boot를 이용해 웹페이지 제작<br>
+                Spring Security, JPA 를 이용해 보안 설정과 데이터 다루기
+            </p>
+        </div>       
+    </body>
+</html>

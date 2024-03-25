@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{fragments/common :: head('게시판')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+    </head>
+
+    <body>
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" th:replace="~{fragments/common :: menu('board')}"> <!-- 공통 출력 화면(fragment) 이름 사용 -->
+            </nav>
+            <!-- ajax 사용시 시큐리티 csrf 적용 -->
+            <meta name="_csrf_header" th:content="${_csrf.headerName}">
+            <meta name="_csrf" th:content="${_csrf.token}">
+        </header>
+
+        <!-- Begin page content -->
+        <div class="container">
+            <h2>게시판</h2>
+            
+            <!-- Post Layer -->
+            <div class="card mt-5 mb-2">
+                <div class="card-header bg-light">Post</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div>
+                                <label>작성자&nbsp;</label>
+                                <label th:text="${boardDetailDTO.username}">작성자</label>
+                            </div>
+                            <div>
+                                <label>작성일&nbsp;</label>
+                                <label th:text="${#temporals.format(boardDetailDTO.createdTime, 'yyyy-MM-dd HH:mm:ss')}">작성일</label>
+                            </div>
+
+                            <div class="my-3">
+                                <label for="title" class="form-label">제목</label>
+                                <input class="form-control" id="title" th:field="${boardDetailDTO.title}" placeholder="제목" readonly> <!-- readonly 읽기전용 -->
+                            </div>
+                            <div class="mb-2">
+                                <label for="content" class="form-label">내용</label>
+                                <textarea class="form-control" id="content" th:field="${boardDetailDTO.content}" rows="5" placeholder="내용" readonly></textarea> <!-- readonly 읽기전용 -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Button Layer -->
+            <div class="text-end">
+                <!-- 작성자와 현재접속 유저가 같을 경우 버튼 활성화 -->
+                <a type="button" class="btn btn-primary" sec:authorize="isAuthenticated()"
+                    th:if="${#authentication.getPrincipal().getUsername() == boardDetailDTO.username}"
+                    th:href="@{/boards/update/{id}(id=${boardDetailDTO.id})}">수정</a>
+                <a type="button" class="btn btn-primary" sec:authorize="isAuthenticated()"
+                    th:if="${#authentication.getPrincipal().getUsername() == boardDetailDTO.username}"
+                    onclick="deleteFunction()">삭제</a>
+                <a type="button" class="btn btn-primary" th:href="@{/boards/list}">목록</a>
+            </div>
+
+            <!-- Comment Layer -->
+            <div class="card mb-2 my-5">
+                <div class="card-header bg-light">Comment</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <!-- 비로그인 상태 출력 -->
+                            <div sec:authorize="!isAuthenticated()">
+                                <div class="text-center">댓글 작성을 위한 로그인이 필요합니다</div>
+                                <div class="text-center mt-2 mb-5">
+                                    <a type="button" class="btn btn-primary" th:href="@{/users/login}">로그인</a>
+                                </div>
+                            </div>
+                            <!-- 로그인 상태 출력 -->
+                            <div sec:authorize="isAuthenticated()">
+                                <div id="current_user" th:value=${#authentication.getPrincipal().getUsername()} style="display:none"></div>
+                                <textarea class="form-control" id="commentWrite" rows="2" placeholder="댓글 쓰기.."></textarea>
+                                <div class="text-end">
+                                    <button type="button" class="btn btn-primary mt-3" onClick="commentWriteFunction()">작성</button>
+                                </div>
+                            </div>
+                            <!-- 댓글 출력 div -->
+                            <div class="comment_list mb-1">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script th:inline="javascript">
+        
+        /*--- 삭제 버튼 함수 ---*/    
+        const deleteFunction = () => {
+            const id = [[ ${boardDetailDTO.id} ]];
+            if(confirm("정말 삭제하시겠습니까?")){
+                location.href='/boards/delete/' + id;
+            }
+        }
+
+        /*--- 댓글 작성 함수 ---*/
+        const commentWriteFunction = () => {
+            /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+            var token = $("meta[name='_csrf']").attr('content');
+            var header = $("meta[name='_csrf_header']").attr('content');
+            
+            const content = document.getElementById('commentWrite');
+            const boardId = [[ ${boardDetailDTO.id} ]];
+            const params = {
+                content : content.value,
+            }
+
+            $.ajax({
+                url : `/boards/list/${boardId}/comments`,
+                type : "post",
+                contentType : "application/json; charset=utf-8",
+                dataType : "json",
+                data : JSON.stringify(params),
+                async : false,
+                success : function (response) {
+                    console.log(response);
+                    alert('댓글이 작성됐습니다.');
+                    commentWrite.value = '';
+                    commentListFuction();
+                },
+                error : function (request, status, error) {
+                    console.log(error);
+                },
+                /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                }
+            })
+        }    
+
+
+        /*--- 댓글 리스트 함수 ---*/
+        window.onload = () => {
+            commentListFuction();
+        }
+        function commentListFuction() {
+            /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+            var token = $("meta[name='_csrf']").attr('content');
+            var header = $("meta[name='_csrf_header']").attr('content');
+            
+            const boardId = [[ ${boardDetailDTO.id} ]];
+            
+            /*--- current_user id를 가진 태그의 속성 값 ---*/
+            const currentUser = $("#current_user").attr("value");
+            
+
+            $.ajax({
+                url : `/boards/list/${boardId}/comments`,
+                type : 'get',
+                dataType : 'json',
+                async : false,
+                success : function (response) {
+                    let output = '';
+                    response.forEach(row => {
+                        
+                        /*--- 날짜 format 변경 ---*/
+                        const TIME_ZONE = 9 * 60 * 60 * 1000;
+                        const d = new Date(row.createdTime);
+                        const date = new Date(d.getTime() + TIME_ZONE).toISOString().split('T')[0];
+                        const time = d.toTimeString().split(' ')[0];
+                        
+                        /*--- 댓글작성자 현재사용자 비교 후 삭제버튼 활성화 ---*/
+                        if(row.username == currentUser){
+                            output += `
+                            <div style="float:left;margin-right:5px" class="fw-bold">${row.username}</div>
+                            <div style="float:left;margin-right:5px" class="fw-light">${date + ' ' + time}</div>
+                            <button class="btn bi bi-backspace" onclick="commentDeleteFunction(${row.id})"
+                                style="float:left; --bs-btn-padding-y: .0rem; --bs-btn-padding-x: .2rem;"></button>
+                            <div style="clear:both">${row.content}</div>
+                            <hr/>
+                            `;
+                        } else {
+                            output += `
+                            <div style="float:left;margin-right:5px" class="fw-bold">${row.username}</div>
+                            <div style="float:left;margin-right:5px" class="fw-light">${date + ' ' + time}</div>
+                            <div style="clear:both">${row.content}</div>
+                            <hr/>
+                            `;
+                        }
+                    })
+                    document.querySelector('.comment_list').innerHTML = output;
+                },
+                error : function (request, status, error) {
+                    console.log(error)
+                },
+                /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                }
+            })
+        }
+
+        /*--- 댓글 삭제 함수 ---*/
+        const commentDeleteFunction = (commentId) => {
+            /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+            var token = $("meta[name='_csrf']").attr('content');
+            var header = $("meta[name='_csrf_header']").attr('content');
+
+            if (!confirm('댓글을 삭제하시겠습니까?')) {
+                return false;
+            }
+
+            const boardId = [[ ${boardDetailDTO.id} ]];
+
+            $.ajax({
+                url : `/boards/list/${boardId}/comments/${commentId}`,
+                type : 'delete',
+                dataType : 'json',
+                async : false,
+                success : function (response) {
+                    alert('댓글이 삭제됐습니다.');
+                    commentListFuction();
+                },
+                error : function (request, status, error) {
+                    console.log(error)
+                },
+                /*--- ajax 사용시 시큐리티 csrf 적용 ---*/
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                }
+            })
+        }
+
+    </script>
+</html>
