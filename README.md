@@ -113,11 +113,11 @@
 ```
 
 ### 2. DB 설계
-#### board
+#### board table
 ![DB구조2](https://github.com/zwanz94/BoardProject/assets/141385082/acb30d1d-152d-4fea-945b-9013a7e88f5a)
-#### user
+#### user table
 ![DB구조3](https://github.com/zwanz94/BoardProject/assets/141385082/db0b0fd9-a084-4530-8e24-09a12d30b73f)
-#### comment
+#### comment table
 ![DB구조](https://github.com/zwanz94/BoardProject/assets/141385082/d562f041-dd0f-4eb2-9ed1-36a02c87275e)
 
 ### 3. API 설계
