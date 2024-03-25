@@ -52,6 +52,63 @@
 ## 구조 및 설계   
    
 ### 1. 패키지 구조
+📦src
+ ┣ 📂main
+ ┃ ┣ 📂generated
+ ┃ ┣ 📂java
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂wj
+ ┃ ┃ ┃ ┃ ┗ 📂board
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CustomUserDetails.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CustomUserDetailsService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜WebSecurityConfig.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂controller
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BoardController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentApiController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜HomeController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserController.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂dto
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BoardDTO.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentDTO.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserDTO.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BoardEntity.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentEntity.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserEntity.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂repository
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BoardRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜BoardService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CommentService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂validator
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AbstractValidator.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CustomValidators.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜BoardApplication.java
+ ┃ ┗ 📂resources
+ ┃ ┃ ┣ 📂static
+ ┃ ┃ ┃ ┗ 📂css
+ ┃ ┃ ┃ ┃ ┣ 📜sign-in.css
+ ┃ ┃ ┃ ┃ ┗ 📜sticky-footer-navbar.css
+ ┃ ┃ ┣ 📂templates
+ ┃ ┃ ┃ ┣ 📂board
+ ┃ ┃ ┃ ┃ ┣ 📜detail.html
+ ┃ ┃ ┃ ┃ ┣ 📜list.html
+ ┃ ┃ ┃ ┃ ┣ 📜update.html
+ ┃ ┃ ┃ ┃ ┗ 📜write.html
+ ┃ ┃ ┃ ┣ 📂fragments
+ ┃ ┃ ┃ ┃ ┗ 📜common.html
+ ┃ ┃ ┃ ┣ 📂user
+ ┃ ┃ ┃ ┃ ┣ 📜changePassword.html
+ ┃ ┃ ┃ ┃ ┣ 📜info.html
+ ┃ ┃ ┃ ┃ ┣ 📜login.html
+ ┃ ┃ ┃ ┃ ┗ 📜register.html
+ ┃ ┃ ┃ ┣ 📜index.html
+ ┃ ┃ ┃ ┗ 📜message.html
+ ┃ ┃ ┗ 📜application.properties
 
 ### 2. DB 설계
 
