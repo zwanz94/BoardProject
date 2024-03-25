@@ -26,12 +26,26 @@
 #### 3-2 백엔드
 
 ##### 주요 프레임워크 / 라이브러리
-
+- Java 17
+- SpringBoot 3.2.3
+- JPA(Spring Data JPA)
+- Spring Security
+- Thymeleaf
+- Validation
+- Devtools
+- Lombok
+  
 ##### Build Tool
+- Gradle 7.4
 
 ##### DataBase
+- MariaDB 10.11
 
 #### 3-3 프론트엔드
+- HTML/CSS
+- JavaScript
+- Bootstrap 5.3.3
+- Thymeleaf
 
 ## 구조 및 설계   
    
