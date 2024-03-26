@@ -15,6 +15,11 @@
 
 ## 프로젝트
 ### 1. 프로젝트 소개
+SpringBoot 를 이용한 기본적인 CRUD 게시판
+- Spring Security - 보안 설정
+- JPA - 데이터 다루기
+- Validation - 데이터 유효성 검사
+- AJAX - 비동기 통신
 
 ### 2. 프로젝트 기능
 - **Board** - CRUD, 페이징, 검색, 조회수
