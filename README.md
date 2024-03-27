@@ -13,6 +13,7 @@
   - [API 설계](#3-api-설계)
 
 - [실행 화면](#실행-화면)
+<br>
 
 ## 프로젝트
 ### 1. 프로젝트 소개
@@ -57,6 +58,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 - JavaScript
 - Bootstrap 5.3.3
 - Thymeleaf
+<br>
 
 ## 구조 및 설계   
    
@@ -159,7 +161,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 |댓글 전체 목록|GET|/boards/list/{boardId}/comments|
 |댓글 작성|POST|/boards/list/{boardId}/comments|
 |댓글 삭제|DELETE|/boards/list/{boardId}/comments/{commentId}|
-
+<br>
 
 ## 실행 화면
 
