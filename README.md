@@ -181,7 +181,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
     <img src="https://github.com/zwanz94/BoardProject/assets/141385082/ac33cf91-b2f7-4100-850e-56ad69c6ff0f">
   </div>
   <div align="center">
-    <img src="https://github.com/zwanz94/BoardProject/assets/141385082/e4b750ed-7a1f-4f40-b3ac-1d470348d1e8">
+    <img src="https://github.com/zwanz94/BoardProject/assets/141385082/4ef60f49-b2c3-487f-9e76-0cb883646057">
   </div>
   <div align="center">회원 권한 : 모든 권한</div>
 </details>
