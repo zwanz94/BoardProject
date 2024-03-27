@@ -201,3 +201,12 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/b373b7c3-0aac-4ca5-ab97-8f20ee171028">
   <div align="center">로그인, 회원가입, 정보수정, 회원탈퇴</div>
 </details>
+
+<details>
+  <summary>페이징/검색</summary>
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/6b0c2210-9e15-40fb-9520-915bdc4c3008">
+  <div align="center">prev:이전 페이지리스트의 마지막 페이지 / next:다음 페이지리스트의 첫번째 페이지</div>
+  <div align="center">
+    <img src="https://github.com/zwanz94/BoardProject/assets/141385082/c32f34b0-33ae-449b-ad09-ca6d9c9448e9">
+  </div>
+</details>
