@@ -188,7 +188,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 
 <details>
   <summary>수정/삭제 권한</summary>
-  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/cbaaeaee-2c3a-4eb8-9cf1-d8b0e7fd52b8">
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/9829e17f-b815-46e8-ada2-9046a8e03f6c">
   <div align="center">
     <img src="https://github.com/zwanz94/BoardProject/assets/141385082/8fddb341-e91b-41b4-ae35-f22f18925f5c">
   </div>
