@@ -12,6 +12,7 @@
   - [DB 설계](#2-db-설계)
   - [API 설계](#3-api-설계)
 
+- [실행 화면](#실행-화면)
 
 ## 프로젝트
 ### 1. 프로젝트 소개
@@ -159,3 +160,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 |댓글 작성|POST|/boards/list/{boardId}/comments|
 |댓글 삭제|DELETE|/boards/list/{boardId}/comments/{commentId}|
 
+
+## 실행 화면
+
+![비회원](https://github.com/zwanz94/BoardProject/assets/141385082/24fa1bc5-0948-4d19-b7da-fbaa1ffaa806)
