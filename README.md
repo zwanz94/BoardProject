@@ -199,5 +199,5 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
   <summary>회원 관리</summary>
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/d9557622-2544-4641-a50b-2f574fbd8181">
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/b373b7c3-0aac-4ca5-ab97-8f20ee171028">
-  <div align="center">로그인, 회원가입, 정보수정</div>
+  <div align="center">로그인, 회원가입, 정보수정, 회원탈퇴</div>
 </details>
