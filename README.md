@@ -163,7 +163,11 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 
 ## 실행 화면
 
-![비회원](https://github.com/zwanz94/BoardProject/assets/141385082/24fa1bc5-0948-4d19-b7da-fbaa1ffaa806)
-<div align="center">
-  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/4bf5c20b-72b3-4d00-b682-e1fe116d2ef4">
-</div>
+<details>
+  <summary>비회원</summary>
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/6c70836a-4126-4ce7-87e3-bab97fa0530c">
+  <div align="center">
+    <img src="https://github.com/zwanz94/BoardProject/assets/141385082/4bf5c20b-72b3-4d00-b682-e1fe116d2ef4">
+  </div>
+  <div align="center">비회원 권한 : 메인화면, 게시판, 상세보기</div>
+</details>
