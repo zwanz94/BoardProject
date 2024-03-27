@@ -218,5 +218,5 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
   </div>
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/de99fd28-ee71-4e7f-a03b-de30f53db470">
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/c98fa40d-5f80-454f-a4d5-8ee250b2d974">
-  <div align="center">공백 체크, 입력값 대조</div>
+  <div align="center">공백 체크, 중복 체크, 입력값 대조</div>
 </details>
