@@ -210,3 +210,13 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/c32f34b0-33ae-449b-ad09-ca6d9c9448e9">
   <div align="center">prev - 이전 페이지리스트의 마지막 페이지 / next - 다음 페이지리스트의 첫번째 페이지</div>
 </details>
+
+<details>
+  <summary>유효성 검사</summary>
+  <div align="center">
+    <img src="https://github.com/zwanz94/BoardProject/assets/141385082/ce618946-af56-49e6-a50e-63436e12c939">
+  </div>
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/de99fd28-ee71-4e7f-a03b-de30f53db470">
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/c98fa40d-5f80-454f-a4d5-8ee250b2d974">
+  <div align="center">공백 체크, 입력값 대조</div>
+</details>
