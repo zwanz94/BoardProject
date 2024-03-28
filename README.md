@@ -204,7 +204,7 @@ SpringBoot 를 이용한 기본적인 CRUD 게시판에 다양한 라이브러�
 
 <details>
   <summary>검색/페이징</summary>
-  <img src="">
+  <img src="https://github.com/zwanz94/BoardProject/assets/141385082/f791213a-9b16-4919-a54c-3962a4161dbc">
   <img src="https://github.com/zwanz94/BoardProject/assets/141385082/c32f34b0-33ae-449b-ad09-ca6d9c9448e9">
   <div align="center">prev - 이전 페이지리스트의 마지막 페이지 / next - 다음 페이지리스트의 첫번째 페이지</div>
 </details>
